@@ -1,0 +1,33 @@
+import { useEffect, useState } from "react";
+
+
+const Block = () => {
+    //call api to fetch data and display it in the block
+    const [data, setData] = useState(null);
+    const api="http://localhost/demo1/Service_controller.php";
+    const call=()=>{
+        fetch(api)
+        .then(response => response.json())
+        .then(data => setData(data))
+        .catch(error => console.error('Error fetching data:', error));
+    };
+    useEffect(() => {
+        // This effect runs when the component is mounted
+        console.log('Block component mounted');
+        call();
+
+        // Cleanup function runs when the component is unmounted
+        return () => {
+            console.log('Block component unmounted');
+        };
+    }, []); // Empty dependency array means this effect runs once on mount and cleanup on unmount
+
+  return (
+    <div className="block">
+      <h2>{data ? data.title : 'Loading...'}</h2>
+      <p>{data ? data.message : 'Loading...'}</p>
+    </div>
+  );
+};
+
+export default Block;
