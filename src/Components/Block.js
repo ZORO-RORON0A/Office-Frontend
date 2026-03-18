@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const Block = () => {
     //call api to fetch data and display it in the block
     const [data, setData] = useState(null);
-    const api="http://localhost/demo1/Service_controller.php";
+    const api="https://abhi-office.infinityfreeapp.com/Service_controller.php";
     const call=()=>{
         fetch(api)
         .then(response => response.json())
