@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const Block = () => {
     //call api to fetch data and display it in the block
     const [data, setData] = useState(null);
-    const api="https://abhi-office.infinityfreeapp.com/index.php";
+    const api="https://office-backend-c8w3.onrender.com/";
     const call=async()=>{
         try {
             const response = await fetch(api);
