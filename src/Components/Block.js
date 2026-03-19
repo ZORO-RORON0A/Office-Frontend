@@ -29,6 +29,11 @@ const Block = () => {
     <div className="block">
       <h2>{data ? data.title : 'Loading...'}</h2>
       <p>{data ? data.message : 'Loading...'}</p>
+      {
+        data===null?
+        <img src="https://i.pinimg.com/originals/8a/c1/29/8ac12962c05648c55ca85771f4a69b2d.gif " alt="Loading" />
+        :<img src="https://i.pinimg.com/736x/ac/7b/f4/ac7bf40fe41e935aec5993f3a280c8eb.jpg" alt="Content" />
+      }
     </div>
   );
 };
