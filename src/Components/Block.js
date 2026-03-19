@@ -7,7 +7,7 @@ const Block = () => {
     const api="https://abhi-office.infinityfreeapp.com/index.php";
     const call=async()=>{
         try {
-            const response = await fetch(api,{headers: {'Content-Type': 'application/json'}});
+            const response = await fetch(api);
             const data = await response.json();
             setData(data);
         } catch (error) {
