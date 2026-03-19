@@ -6,7 +6,11 @@ const Block = () => {
     const [data, setData] = useState(null);
     const api="https://abhi-office.infinityfreeapp.com/index.php";
     const call=()=>{
-        fetch(api)
+        fetch(api,{
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
         .then(response => response.json())
         .then(data => setData(data))
         .catch(error => console.error('Error fetching data:', error));
