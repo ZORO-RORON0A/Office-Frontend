@@ -5,11 +5,14 @@ const Block = () => {
     //call api to fetch data and display it in the block
     const [data, setData] = useState(null);
     const api="https://abhi-office.infinityfreeapp.com/index.php";
-    const call=()=>{
-        fetch(api)
-        .then(response => response.json())
-        .then(data => setData(data))
-        .catch(error => console.error('Error fetching data:', error));
+    const call=async()=>{
+        try {
+            const response = await fetch(api);
+            const data = await response.json();
+            setData(data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
     };
     useEffect(() => {
         // This effect runs when the component is mounted
